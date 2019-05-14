@@ -11,7 +11,7 @@ set cursorline
 set wildmenu
 set showmatch
 set autoindent
-set visualbell
+" set visualbell
 set nostartofline
 set confirm
 set ruler
@@ -19,9 +19,10 @@ set mouse=a
 set ignorecase
 set smartcase
 set nohlsearch
+set laststatus=2
 
 " Plugins
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged_vim')
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'Kana/vim-smartinput'
 Plug 'junegunn/fzf'
@@ -34,10 +35,10 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim'
+Plug 'zchee/deoplete-jedi', {'do': ':UpdateRemotePlugins'}
 Plug 'vim-syntastic/syntastic'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'sakhnik/nvim-gdb', { 'do': ':!./install.sh \| UpdateRemotePlugins' }
 else
   Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
@@ -49,7 +50,7 @@ call plug#end()
 colorscheme flattened_dark
 
 " Keybindings
-nmap <leader>vi :e ~/.config/nvim/init.vim
+nmap <leader>vi :e ~/.vimrc
 nmap <leader>i3 :e ~/.config/i3/config
 nmap <leader>t :NERDTreeToggle<CR>
 nmap <leader>g :GitGutterToggle<CR>
@@ -81,3 +82,8 @@ let g:lightline = {
 
 " Termdebug
 :packadd termdebug
+
+" Cursor
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
