@@ -34,8 +34,14 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'w0rp/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'Shougo/deoplete.nvim'
-Plug 'zchee/deoplete-jedi', {'do': ':UpdateRemotePlugins'}
 Plug 'vim-syntastic/syntastic'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 call plug#end()
 
 " Colorscheme

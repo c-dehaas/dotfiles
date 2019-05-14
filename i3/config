@@ -9,6 +9,12 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
+
+##########################
+# NOTE: for KDE plasma apps use qt5ct AND lxappearance to set breeze theme
+##########################
+
+
 #####################
 # gaps
 #####################
